@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
-  return (
+
+  const [name, setName] = useState("")
+  const [age, setAge] = useState("")  
+  
+  const setNameInput = (event) => {
+    setName (event.target.value)
+  }
+
+  const setAgeInput = (event) => {
+    setAge (event.target.value)
+  }
+  
+  const convert = (event) => {
+    var upperCaseName = name.toUpperCase()
+    setName(upperCaseName)
+  }
+  
+return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <h1>List of Name & Age</h1>
+    Name: <input type="" value={name} onChange={setNameInput}></input><br/><br/>
+    Age: <input type="" value={age} onChange={setAgeInput}></input><br/><br/>
+    <button onClick={convert}>convert</button>
+    {name}, {age}
+
+
     </div>
-  );
+  )
+
 }
 
 export default App;
